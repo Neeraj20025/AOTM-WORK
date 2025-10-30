@@ -1,255 +1,507 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-
-    <title>Digital India - Power to Empower</title>
-
-</head>
-<style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital India 2047 — Empowering Every Citizen</title>
+  <meta name="description"
+    content="Digital India 2047 — a vision for connectivity, digital services and inclusive growth." />
+  <style>
     :root {
-        --primary-color: #f5eeee;
-        --secondary-color: #2e5bd7;
-        --accent-color: #28a745;
-        --light-bg: rgb(0, 212, 21);
-        --dark-text: #c0bbbb;
+      --saffron: #FF9933;
+     
+      --white: #ffffff;
+      --green: #138808;
+    
+      --bg: #fbfbfb;
+      --muted: #6b7280;
+      --container: 1100px;
     }
 
     * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+      box-sizing: border-box
     }
 
+    html,
     body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        color: var(--dark-text);
+      height: 100%;
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      color: #0b1220;
+      background: white;
+      background:linear-gradient(rgb(227, 166, 55),white,green)
+
     }
 
-    .container {
-
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
+    a {
+      color: inherit;
+      text-decoration: none
     }
 
+    /* Page layout */
+    .wrap {
+      max-width: var(--container);
+      margin: 40px auto;
+      padding: 24px
+    }
 
     header {
-        background: #389fcf;
-        border-bottom: 3px solid var(--primary-color);
-        padding: 15px 0;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color:rgba(187, 146, 71, 0.485);
+      gap: 20;
+      border-radius: 5px;
     }
 
-    header .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px
     }
 
-    .logo a {
-        font-size: 1.8em;
-        font-weight: bold;
-        color: var(--primary-color);
-        text-decoration: none;
+    .logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--saffron), var(--white) 45%, var(--green));
+      box-shadow: 0 6px 18px rgba(19, 136, 8, 0.06);
+    }
+
+    .logo svg {
+      width: 36px;
+      height: 36px
     }
 
     nav ul {
-        list-style: none;
-        display: flex;
-       
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0
     }
 
-    nav ul li a {
-        text-decoration: none;
-        color: var(--dark-text);
-        padding: 10px 15px;
-        display: block;
-        transition: color 0.3s;
+    nav a {
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size:15px;
+     margin: 0 ;
+     position: relative;
+      text-decoration: none;
+      text-transform: capitalize;
+      color: #000000
+    }
+    nav a:hover{
+    color: white;
+
     }
 
-    nav ul li a:hover {
-        color: var(--primary-color);
+    nav a::before{
+      content: "";
+      position: absolute;
+      bottom: 6px;
+      left: 0;
+      width:0px;
+      height:3px;
+    }
+     nav a::before{
+      width:100px;
+
+     }
+
+
+
+
+
+    nav a.cta {
+      background: linear-gradient(90deg, var(--green), var(--saffron));
+      color:black;
+    }
+
+   
+    .di{
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 32px;
+      align-items: center;
+      margin-top: 28px
+    }
+
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+      border-radius: 18px;
+      padding: 36px;
+      box-shadow: 0 10px 30px rgba(11, 18, 32, 0.06)
+      
+    }
+  
+    h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      margin: 0 0 12px 0;
+      line-height: 1.05
+    }
+
+    .lead {
+      color:rgb(82, 200, 100);
+      margin-bottom: 20px
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: var(--white)
+    }
+   
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      
+      gap: 16px;
+      margin-top: 22px
+    }
+
+    .feature {
+      background: var(--white);
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(2, 6, 23, 0.04)
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+      cursor: pointer;
+      backdrop-filter: blur(5px);
+    }
+
+    .feature:hover{
+       transform: translateY(-10px) scale(1.05);
+       box-shadow: 0 0 35px rgb(255, 255, 255);
+        background: rgba(255,255,255,0.12);
+         box-shadow: 0 0 15px rgb(255, 255, 255);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+   
+    }
+
+    .feature h3 {
+      margin: 8px 0 6px
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    .panel {
+      background: linear-gradient(180deg, #fff, #fcf9f5);
+      padding: 20px;
+      border-radius: 12px;
+       box-shadow: 0 6px 18px rgba(2, 6, 23, 0.04)
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+      cursor: pointer;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(19, 136, 8, 0.06)
+    }
+
+    .panel:hover{
+  transform: translateY(-10px) scale(1.05);
+       box-shadow: 0 0 35px rgb(252, 252, 252);
+        background: rgba(255,255,255,0.12);
+         box-shadow: 0 0 15px rgb(255, 255, 255);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+   
+
+
+    }
+
+    .stat {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: rgba(19, 136, 8, 0.03);
+      margin-bottom: 10px
+    }
+
+    .stat strong {
+      font-size: 18px
+    }
+
+   
+    footer {
+      margin-top: 40px;
+      padding: 28px 24px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, rgba(19, 136, 8, 0.06), rgba(255, 153, 51, 0.03));
+      display: flex;
+   background-color: white;
+      justify-content: space-between;
+      align-items: center
+    }
+
+    @media (max-width:980px) {
+      .hero {
+        grid-template-columns: 1fr
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media (max-width:600px) {
+      .features {
         
-    }
+        grid-template-columns: 1fr
+      }
 
+      header {
+        flex-direction: column;
+        align-items: flex-start
+      }
 
-    .hero {
-        background: linear-gradient(rgba(255, 108, 3, 0.998), rgba(229, 232, 231, 0.8)), url('placeholder-bg.jpg');
+      nav ul {
+        flex-wrap: wrap
+      }
 
-        background-size: cover;
-        background-position: center;
-        color: rgb(7, 2, 2);
-        padding: 100px 0;
-        text-align: center;
-    }
-
-    .hero h1 {
-        font-size: 3em;
-        margin-bottom: 20px;
-    }
-
-    .hero p {
-        font-size: 1.2em;
-        margin-bottom: 30px;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
+      .wrap {
+        padding: 16px;
+        margin: 20px
+      }
     }
 
     
-
-
-    section {
-        padding: 60px 0;
-        text-align: center;
+    .tag {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(228, 224, 220, 0.788);
+      color:rgb(0, 0, 0);
+      font-weight: 700;
+      font-size: 20px
     }
 
-    h2 {
-        font-size: 2.5em;
-        margin-bottom: 40px;
-        color: var(--secondary-color);
+    .muted {
+      color: var(--muted);
+      font-size: 13px
     }
 
-
-    .pillars {
-        background-color: var(--light-bg);
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #e6e6e6;
+      font-family: inherit
     }
 
-    .pillar-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
-        margin-top: 30px;
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px
     }
 
-    .pillar-card {
-        background: rgb(0, 0, 0);
-        padding: 30px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.95);
-        text-align: left;
-        transition: transform 0.3s;
+    .small {
+      font-size: 14px;
+      color:rgb(82, 200, 100);
+    }
+    .small2 {
+      color:black;
     }
 
-    .pillar-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .pillar-card h3 {
-        color: var(--primary-color);
-        margin-bottom: 10px;
-    }
-
-
-    .service-list {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        flex-wrap: wrap;
-    }
-
- 
-    footer {
-        background-color: var(--dark-text);
-        color: rgb(7, 4, 4);
-        padding: 20px 0;
-    }
-
-    footer .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 0.9em;
-    }
-
-    .footer-links a {
-        color: #000000;
-        text-decoration: none;
-        margin-left: 20px;
-    }
-
-        nav ul {
-            margin-top: 10px;
-            justify-content: center;
-        }
-
-        nav ul li a {
-            padding: 5px 10px;
-        }
-
-        .hero h1 {
-            font-size: 2.2em;
-        }
-      
-    }
-</style>
+    #map { text-align: center; }
+.map-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0,200,255,0.5);
+}
+.map-container img {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius);
+}
+  
+  </style>
+</head>
 
 <body>
-
+  <div class="wrap">
     <header>
-        <div class="container">
-            <div class="logo">
-                <a href="#">Digital India In 2047</a>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#Vision">Vision</a></li>
-                    <li><a href="#services">Senario</a></li>
-                    <li><a href="#home">Contact</a></li>
-
-            </nav>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          
+          <svg viewBox="0 0 24 24" fill="none" = aria-hidden="true">
+          </svg>
         </div>
+        <div>
+          <div style="font-weight:700">Digital India 2047</div>
+          <div class="small">Connectivity • Services • Inclusion</div>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#impact">Impact</a></li>
+          <li><a class="cta" href="#join">Contact</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>Digital India Transformation</h1>
-            <p>Empowering every citizen with digital access and services to build a knowledge economy.</p>
-
+    <section class="di">
+      <div class="di1">
+        <span class="tag">Vision • 2047</span>
+        <h1>Bringing every citizen online — secure, simple, and sustainable.</h1>
+        <p class="lead">Digital India 2047 is a nationwide initiative to expand access to digital services, improve
+          digital literacy, and power inclusive growth using sustainable technologies.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#join">Join the movement</a>
         </div>
-    </section>
 
-    <section id="pillars" class="pillars">
-        <div class="container">
-            <h2>The 9 Pillars of Digital India</h2>
-            <div class="pillar-grid">
-                <div class="pillar-card">
-                    <h3>Broadband Highways</h3>
-                    <p>Creating robust digital infrastructure for all.</p>
-                </div>
-                <div class="pillar-card">
-                    <h3>e-Governance</h3>
-                    <p>Reforming government services through technology.</p>
-                </div>
-                <div class="pillar-card">
-                    <h3>Universal Mobile Access</h3>
-                    <p>Ensuring mobile connectivity reaches remote areas.</p>
-                </div>
-            </div>
+        <div class="features" style="margin-top:20px">
+          <div class="feature">
+            <strong>Universal Connectivity</strong>
+            <p>Affordable, high-speed internet across rural and urban areas.</p>
+          </div>
+          <div class="feature">
+            <strong>e-Governance</strong>
+            <p>Citizen-centric digital services for health, education and finance.</p>
+          </div>
+          <div class="feature">
+            <strong>Digital Literacy</strong>
+            <p>Training programs and local hubs to enable digital participation.</p>
+          </div>
         </div>
+      </div>
+
+      <aside class="panel">
+        <h3 style="margin-top:0">Quick Stats</h3>
+        <div class="stat"><span class="muted">Connected Hubs</span><strong>1.2M+</strong></div>
+        <div class="stat"><span class="muted">Digital IDs Issued</span><strong>950M+</strong></div>
+        <div class="stat"><span class="muted">Services Live</span><strong>420+</strong></div>
+
+        <hr style="border:none;border-top:1px solid #f1f1f1;margin:12px 0">
+        <h4 style="margin:8px 0 6px">Stay informed</h4>
+        <form id="signup">
+          <input type="email" placeholder="Email address" required />
+          <div style="height:10px"></div>
+          <button class="btn btn-primary" style="width:100%">Subscribe</button>
+        </form>
+      </aside>
     </section>
 
-    <section id="services" class="services">
+    <section id="about" style="margin-top:28px">
+      <div class="hero-card">
+        <h2  style="//background-color: #FF9933;">About Digital India 2048</h2>
+        <p class="lead">Our mission is to create a digitally empowered society where technology is accessible, safe, and
+          sustainable. We partner with local governments, private sector innovators, and civil society to deliver
+          high-impact programs.</p>
 
-
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px">
+          <div>
+            <h3>Green tech & sustainability</h3>
+            <p class="small">Everything we build follows energy-efficient and low-carbon principles — from solar-powered
+              kiosks to green data centers.</p>
+          </div>
+          <div>
+            <h3>Inclusive design</h3>
+            <p class="small">Services in multiple regional languages, offline-first apps, and accessibility features to
+              ensure nobody is left behind.</p>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <section id="services" style="margin-top:22px">
+      <div class="hero-card">
+        <h2>Key Services</h2>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px">
+          <div class="feature">
+            <h3>Telemedicine</h3>
+            <p>Remote consultations and electronic health records for rural clinics.</p>
+          </div>
+
+          <div class="feature">
+            <h3>eLearning</h3>
+            <p>Localized courseware and community learning centers.</p>
+          </div>
+          <div class="feature">
+            <h3>Digital Payments</h3>
+            <p>Secure, low-cost transaction infrastructure for MSMEs and citizens.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="impact" style="margin-top:22px">
+      <div class="hero-card">
+        <h2>Impact so far</h2>
+        <p class="small">From digital public infrastructure to last-mile services — we focus on measurable outcomes.</p>
+        <ul style="margin-top:12px;color:rgb(82, 200, 100);">
+          <li>Increased digital literacy in 7,500 villages.</li>
+          <li>Reduced time-to-service for welfare schemes by 40% in pilot districts.</li>
+          <li>Created 150,000 local micro-entrepreneur opportunities.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="join" style="margin-top:22px">
+      <div sttyle="background-color: #138808;" class="hero-card">
+        <h2>Get involved</h2>
+        <p class="small">Join as a volunteer, partner, or technology contributor.</p>
+
+        <form style="margin-top:12px">
+          <div  class="form-row">
+            <input type="text" placeholder="Full name" required />
+            <input type="text" placeholder="Location (city/state)" required />
+          </div>
+          <div style="height:10px"></div>
+          <input type="email" placeholder="Email" required />
+          <div style="height:10px"></div>
+          <textarea placeholder="How would you like to help?" rows="4"></textarea>
+          <div style="height:12px"></div>
+          <button class="btn btn-primary" type="submit">Send request</button>
+        </form>
+      </div>
+    </section>
+    
+<section id="map">
+  <h2>I dream of a Digital India where knowledge is strength - and empowers the People.</h2>
+  <div class="map-container">
+    <img src="images1/di.png" alt="Innovation Map">
+  </div>
 
     <footer>
-        <div class="container">
-            <p><b>2047 Digital India </b> </p>
-            <div class="footer-links">
-
-                <a href="#"> <b>Digital skills and literacy among citizens, including rural populations</b></a>
-            </div>
-        </div>
+      <div">
+        <div style="font-weight:700">Digital India 2047</div>
+        <div class="small">Building a digitally inclusive nation</div>
+      </div>
+      <div class="small2">© 2047 Digital India Initiative</div>
     </footer>
-
+  </div>
+  
 </body>
 
 </html>
